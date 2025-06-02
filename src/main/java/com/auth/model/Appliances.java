@@ -20,7 +20,6 @@ public class Appliances {
         return getConsumoDiarioKWh() * TARIFA;
     }
 
-    // Getters
     public String getNome() { return nome; }
     public double getWatts() { return watts; }
     public double getHorasUsoDiario() { return horasUsoDiario; }

@@ -22,7 +22,7 @@ public class ConsoleUI {
         try {
             return scanner.nextInt();
         } finally {
-            scanner.nextLine(); // Limpa o buffer do teclado
+            scanner.nextLine();
         }
     }
 
@@ -58,7 +58,7 @@ public class ConsoleUI {
     }
 
     public static Appliances lerEletrodomestico() {
-        scanner.nextLine(); // Limpa o buffer antes de começar
+        scanner.nextLine();
 
         System.out.print("\nNome do aparelho: ");
         String nome = scanner.nextLine();
@@ -68,7 +68,7 @@ public class ConsoleUI {
 
         System.out.print("Horas de uso diário: ");
         double horas = scanner.nextDouble();
-        scanner.nextLine(); // Limpa o buffer após a leitura
+        scanner.nextLine();
 
         return new Appliances(nome, watts, horas);
     }

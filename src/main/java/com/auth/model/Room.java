@@ -28,7 +28,6 @@ public class Room {
                 .sum();
     }
 
-    // Getters
     public String getNome() { return nome; }
     public List<Appliances> getEletrodomesticos() { return eletrodomesticos; }
 }

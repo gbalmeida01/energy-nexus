@@ -8,6 +8,20 @@ import java.util.Scanner;
 public class ConsoleUI {
     public static final Scanner scanner = new Scanner(System.in);
 
+    public static void exibirLogin() {
+        System.out.println("========== Login ==========");
+    }
+
+    public static String lerUsername() {
+        System.out.println("Usuario: ");
+        return scanner.nextLine();
+    }
+
+    public static String lerSenha() {
+        System.out.println("Senha: ");
+        return scanner.nextLine();
+    }
+
     public static void exibirMenuPrincipal() {
         System.out.println("\nMenu Principal:");
         System.out.println("1. Adicionar cômodo");

@@ -2,6 +2,8 @@ package com.auth;
 
 import com.auth.model.Appliances;
 import com.auth.model.Room;
+import com.auth.model.User;
+import com.auth.service.AuthService;
 import com.auth.service.RelatorioService;
 import com.auth.util.ConsoleUI;
 import java.util.ArrayList;
@@ -10,8 +12,11 @@ import java.util.List;
 public class AppNexus {
     private static final List<Room> comodos = new ArrayList<>();
     private static final RelatorioService relatorioService = new RelatorioService();
+    private static final AuthService authService = new AuthService();
+    private static User userLogin;
 
     public static void main(String[] args) {
+        authUser();
         ConsoleUI.exibirCabecalho();
 
         while (true) {
@@ -28,6 +33,21 @@ public class AppNexus {
                     System.exit(0);
                 }
                 default -> System.out.println("Opção inválida! Tente novamente.");
+            }
+        }
+    }
+
+    private static void authUser() {
+        while(userLogin == null) {
+            ConsoleUI.exibirLogin();
+            String username = ConsoleUI.lerUsername();
+            String password = ConsoleUI.lerSenha();
+
+            userLogin = authService.login(username, password);
+            if (userLogin == null) {
+                System.out.println("Usuário ou senha inválidos! Tente novamente.\n");
+            } else {
+                System.out.println("\nBem-vindo, " + userLogin.getUsername() + "!\n");
             }
         }
     }
